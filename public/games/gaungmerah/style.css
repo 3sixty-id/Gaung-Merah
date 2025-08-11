@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    background-color: #cf1408 !important;
+}
+
+html,
+body,
+canvas {
+    touch-action-delay: none;
+    touch-action: none;
+}
+
+canvas,
+.c3htmlwrap {
+    position: absolute;
+    z-index: 0;
+}
+
+.c3htmlwrap {
+    contain: strict;
+}
+
+.c3overlay {
+    pointer-events: none;
+}
+
+.c3htmlwrap > * {
+    pointer-events: auto;
+}
+
+/* HACK - work around elements being selectable only in iOS WKWebView for some reason */
+html[ioswebview] .c3htmlwrap,
+html[ioswebview] canvas {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html[ioswebview] .c3htmlwrap > * {
+    -webkit-user-select: auto;
+    user-select: auto;
+}
+
+#notSupportedWrap {
+    margin: 2em auto 1em auto;
+    width: 75%;
+    max-width: 45em;
+    border: 2px solid #aaa;
+    border-radius: 1em;
+    padding: 2em;
+    background-color: #f0f0f0;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans",
+        "Helvetica Neue", Arial, sans-serif;
+    color: black;
+}
+
+#notSupportedTitle {
+    font-size: 1.8em;
+}
+
+.notSupportedMessage {
+    font-size: 1.2em;
+}
+
+.notSupportedMessage em {
+    color: #888;
+}
+
+/* bbcode styles */
+.bbCodeH1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.bbCodeH2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.bbCodeH3 {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.bbCodeH4 {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.bbCodeItem::before {
+    content: " • ";
+}
+
+/* For text icons converted to HTML: size the height to the line height
+   preserving the aspect ratio. Also add position: relative as that allows
+   just adding a 'top' style for the iconoffsety style. */
+.c3-text-icon {
+    height: 1em;
+    width: auto;
+    position: relative;
+}
+
+/* screen reader text */
+.c3-screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.input {
+    outline: none;
+    border: 0;
+    font-size: clamp(12px, 12px, 5vw) !important;
+    text-decoration: none;
+    text-align: left;
+    background-color: #02263f;
+    color: white;
+    border-radius: 12px;
+}
+
+input[type="checkbox"]#agreement {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border: 2px solid #04253e;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]#agreement {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border: 2px solid #04253e;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+input[type="checkbox"]#agreement:checked {
+    background-color: #04253e;
+}
+
+input[type="checkbox"]#agreement:checked::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 10px;
+
+    left: 5px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+#fullname {
+    text-align: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#usia {
+    text-align: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#job {
+    text-align: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#brandrokok {
+    text-align: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#kota {
+    text-align: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#telphone {
+    text-align: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#tanggal {
+    text-align: center;
+}
+
+#bulan {
+    text-align: center;
+}
+
+#tahun {
+    text-align: center;
+}
+
+#datePicker {
+    background-color: rgba(0, 0, 0, 0.74);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure it's in front of other content */
+}
+
+.dateList {
+    width: 100%;
+    height: 100vw;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #04253e;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 100); /* Optional: Adding a box shadow for better visibility */
+}
+
+.dateList ul {
+    max-height: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 1;
+    overflow-y: auto;
+}
+
+.dateList ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ccc; /* Optional: Adding a border between list items */
+    cursor: pointer;
+    color: white !important;
+}
+
+.dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background: #02263f;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+#searchBox {
+    padding: 12px;
+    cursor: pointer;
+    background: #fff;
+    color: #02263f;
+    font-size: 1em;
+    top: 0;
+    position: sticky;
+
+    border: none;
+    outline: none;
+}
+
+.dropdown li {
+    padding: 8px;
+    cursor: pointer;
+    color: white;
+    font-size: 0.7em;
+}
+
+.dropdown li:hover {
+    background-color: #0e4166;
+}
