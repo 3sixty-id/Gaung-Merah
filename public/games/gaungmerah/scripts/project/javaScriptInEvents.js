@@ -60,6 +60,11 @@ const scriptsInEvents = {
 		initAction("init", "menu")
 	},
 
+	async Gameplay_Event4_Act7(runtime, localVars)
+	{
+		initAction("button", "underage");
+	},
+
 	async Gameplay_Event7_Act5(runtime, localVars)
 	{
 		initAction("button", "user_agreement_false");
@@ -158,11 +163,6 @@ const scriptsInEvents = {
 	async Gameplay_Event46_Act2(runtime, localVars)
 	{
 		initAction("button", "skip_ads")
-	},
-
-	async Gameplay_Event4_Act7(runtime, localVars)
-	{
-		initAction("button", "underage");
 	}
 };
 

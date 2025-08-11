@@ -453,9 +453,9 @@ function fetchQuizData(target_visual) {
                         "Angkringan",
                         "Food Court",
                     ],
-                    quizQuestion: "",
-                    quizReason:
+                    quizQuestion:
                         "Warung makan khas Tegal yang kualitasnya menyala dari waktu ke waktu adalah",
+                    quizReason: "",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 1,
                 },
