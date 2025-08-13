@@ -488,7 +488,7 @@ function fetchQuizData(target_visual) {
                         "Food Court",
                     ],
                     quizQuestion:
-                        "Warung makanan khas tegal yang kualitasnya menyala dari waktu ke waktu adalah?",
+                        "Warung makanan khas tegal yang kualitasnya menyala dari waktu ke waktu adalah?",
                     quizReason: "Warung makan khas tegal adalah warteg",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 1,
