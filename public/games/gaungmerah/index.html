@@ -7,8 +7,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
         />
-
-        <!-- Made with Construct, the game and app creator :: https://www.construct.net -->
+        <base href="/game/" />
         <meta name="generator" content="Scirra Construct" />
 
         <link rel="manifest" href="appmanifest.json" />
@@ -25,6 +24,31 @@
         <link rel="icon" type="image/png" href="icons/icon-256.png" />
 
         <link rel="stylesheet" href="style.css" />
+
+        <script>
+            const MAX_TIME = 5 * 1000; // 2 minutes in milliseconds
+            const STORAGE_KEY = "firstVisitTime";
+
+            // Get first visit time
+            let firstVisit = localStorage.getItem(STORAGE_KEY);
+
+            if (!firstVisit) {
+                localStorage.setItem(STORAGE_KEY, Date.now());
+                firstVisit = Date.now();
+            } else {
+                firstVisit = parseInt(firstVisit, 10);
+            }
+
+            const elapsed = Date.now() - firstVisit;
+
+            if (elapsed > MAX_TIME) {
+                const params = new URLSearchParams(window.location.search);
+                const eventId = params.get("event_id"); // get only the first value
+                window.location.href =
+                    "/?event_id=" + encodeURIComponent(eventId);
+                localStorage.removeItem(STORAGE_KEY); // Clear the first visit time
+            }
+        </script>
     </head>
 
     <body>

@@ -64,7 +64,17 @@ function buttonHandler(value) {
         case "merchandise":
             localStorage.setItem("reload_game", "1");
             setTimeout(() => {
-                window.location.reload();
+                const params = new URLSearchParams(window.location.search);
+                const event_id = params.get("event_id");
+
+                // Redirect to main page with the same event_id
+                if (event_id) {
+                    window.location.href = `/?event_id=${encodeURIComponent(
+                        event_id
+                    )}`;
+                } else {
+                    window.location.href = "/";
+                }
             }, 200);
             break;
         case "option_0":
@@ -193,7 +203,17 @@ function buttonHandler(value) {
         case "game_selesai":
             localStorage.setItem("reload_game", "1");
             setTimeout(() => {
-                window.location.reload();
+                const params = new URLSearchParams(window.location.search);
+                const event_id = params.get("event_id");
+
+                // Redirect to main page with the same event_id
+                if (event_id) {
+                    window.location.href = `/?event_id=${encodeURIComponent(
+                        event_id
+                    )}`;
+                } else {
+                    window.location.href = "/";
+                }
             }, 1000);
             break;
         case "game_mainlagi":

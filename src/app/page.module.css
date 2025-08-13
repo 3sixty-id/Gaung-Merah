@@ -1,44 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
 .page {
-   height: 100vh;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background: white;
-   color: black;
-   gap: 40px; /* space between logo and buttons */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: black;
+    gap: 40px; /* space between logo and buttons */
 }
 
 .instruction {
-   font-size: 1.4em;
-   font-weight: 500;
-   color: #333;
-   margin: 0;
-   text-align: center;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    text-align: center;
 }
 
 .imageWrapper {
-   position: relative;
-   width: 80vw;
-   max-width: 512px;
-   height: 150px; /* fixed height for logo display */
+    position: relative;
+    width: 80vw;
+    max-width: 512px;
+    height: 150px; /* fixed height for logo display */
 }
 
 .image {
-   object-fit: contain;
+    object-fit: contain;
 }
 
 .buttonContainer {
-   display: flex;
-   gap: 40px;
-   justify-content: center;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
 }
 
 .button {
-   cursor: pointer;
-   transition: transform 0.2s;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .button:hover {
-   transform: scale(1.05);
+    transform: scale(1.05);
 }

@@ -31,14 +31,14 @@ const nextConfig = {
         return [
             // This rule ensures that website.com/sama-sama/ will serve public/games/sama-sama/index.html
             {
-                source: "/samasama",
-                destination: "/games/sama-sama/index.html",
+                source: "/game",
+                destination: "/games/gaungmerah/index.html",
             },
             // This rule ensures that all other assets (CSS, JS, images, etc.) within the game
             // are correctly mapped from /sama-sama/ to public/games/sama-sama/
             {
-                source: "/samasama/:path*",
-                destination: "/games/sama-sama/:path*",
+                source: "/game/:path*",
+                destination: "/games/gaungmerah/:path*",
             },
         ];
     },
