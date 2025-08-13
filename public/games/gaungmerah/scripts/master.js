@@ -431,7 +431,7 @@ function fetchQuizData(target_visual) {
                         "Jawa Barat",
                     ],
                     quizQuestion:
-                        "Kopi Gayo merupakan salah sagu jenis kopi terbaik yang diakui dunia berasal dari provinsi?",
+                        "⁠Kopi Gayo merupakan salah satu jenis kopi terbaik yang diakui dunia berasal dari provinsi?",
                     quizReason:
                         "Kopi Gayo merupakan salah satu kopi terbaik dunia yang berasal dari Aceh",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
@@ -468,7 +468,7 @@ function fetchQuizData(target_visual) {
                         "Es Pisang Ijo",
                     ],
                     quizQuestion:
-                        "Kuliner Manis Khas Makassar dengan bahan utama pisang dengan balutan adonan hijau adalah?",
+                        "KKuliner Manis Khas Makassar dengan bahan utama pisang dengan balutan adonan hijau adalah?",
                     quizReason:
                         "Kuliner Manis Khas Makassar tersebut adalah es pisang ijo",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
