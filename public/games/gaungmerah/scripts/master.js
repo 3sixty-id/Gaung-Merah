@@ -46,7 +46,7 @@ const constructMaster = () => {
 function buttonHandler(value) {
     switch (value) {
         case "visit":
-            openInstagram();
+            //openInstagram();
             break;
         case "underage":
             underAgeTracker();
@@ -268,6 +268,12 @@ function goToTips() {
 
 function initHandler(value) {
     if (value == "menu") {
+        // Attach click event
+        document.getElementById("igtrigger").addEventListener("click", () => {
+            openInstagram();
+            openIG();
+        });
+
         runtime.callFunction("showUI", "processing_screen");
         runtime.callFunction("setProcess", "Memuat halaman...");
 
@@ -392,7 +398,8 @@ function fetchQuizData(target_visual) {
                 {
                     contentIndex: 0,
                     quizClueImage: "",
-                    quizClueText: "",
+                    quizClueText:
+                        "Makanan Khas Sumatra Barat yang diakui dunia adalah Rendang",
                     quizCorrectOption: 2,
                     quizImage:
                         "/games/gaungmerah/images/questions/static_food_1.jpg",
@@ -403,15 +410,17 @@ function fetchQuizData(target_visual) {
                         "Pempek",
                     ],
                     quizQuestion:
-                        "Makanan khas Sumatra Barat yang telah diakui sebagai salah satu makanan terenak di dunia adalah…",
-                    quizReason: "",
+                        "Makanan Khas Sumatra Barat yang diakui oleh dunia adalah?",
+                    quizReason:
+                        "Makanan Khas Sumatra Barat yang diakui dunia adalah Rendang",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 1,
                 },
                 {
                     contentIndex: 0,
                     quizClueImage: "",
-                    quizClueText: "",
+                    quizClueText:
+                        "Kopi Gayo merupakan salah satu kopi terbaik dunia yang berasal dari Aceh",
                     quizCorrectOption: 3,
                     quizImage:
                         "/games/gaungmerah/images/questions/static_food_2.jpg",
@@ -422,29 +431,33 @@ function fetchQuizData(target_visual) {
                         "Jawa Barat",
                     ],
                     quizQuestion:
-                        "Kopi Gayo merupakan Salah Satu Jenis Kopi Terbaik di Dunia yang diakui dari waktu ke waktu berasal dari provinsi….",
-                    quizReason: "",
+                        "Kopi Gayo merupakan salah sagu jenis kopi terbaik yang diakui dunia berasal dari provinsi?",
+                    quizReason:
+                        "Kopi Gayo merupakan salah satu kopi terbaik dunia yang berasal dari Aceh",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 1,
                 },
                 {
                     contentIndex: 0,
                     quizClueImage: "",
-                    quizClueText: "",
+                    quizClueText:
+                        "Buah terkenal dari medan tersebut adalah Durian",
                     quizCorrectOption: 1,
                     quizImage:
                         "/games/gaungmerah/images/questions/static_food_3.jpg",
                     quizOptions: ["Durian", "Manggis", "Salak", "Lontar"],
                     quizQuestion:
-                        "Buah terkenal dari Medan yang kenikmatannya diakui dari waktu ke waktu dan sering dijuluki sebagai “The King of Fruit” adalah…",
-                    quizReason: "",
+                        "Buah terkenal dari Medan yang kenikmatanya diakui serta dijuluki “The King of Fruit” adalah?",
+                    quizReason:
+                        "Buah terkenal dari medan tersebut adalah Durian",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 1,
                 },
                 {
                     contentIndex: 0,
                     quizClueImage: "",
-                    quizClueText: "",
+                    quizClueText:
+                        "Kuliner Manis Khas Makassar tersebut adalah es pisang ijo",
                     quizCorrectOption: 4,
                     quizImage:
                         "/games/gaungmerah/images/questions/static_food_4.jpg",
@@ -455,15 +468,16 @@ function fetchQuizData(target_visual) {
                         "Es Pisang Ijo",
                     ],
                     quizQuestion:
-                        "Kuliner Manis Khas Makassar (Sulawesi Selatan) yang bahan utamanya adalah pisang yang dibalut dengan adonan hijau adalah",
-                    quizReason: "",
+                        "Kuliner Manis Khas Makassar dengan bahan utama pisang dengan balutan adonan hijau adalah?",
+                    quizReason:
+                        "Kuliner Manis Khas Makassar tersebut adalah es pisang ijo",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 1,
                 },
                 {
                     contentIndex: 0,
                     quizClueImage: "",
-                    quizClueText: "",
+                    quizClueText: "Warung makan khas tegal adalah warteg",
                     quizCorrectOption: 1,
                     quizImage:
                         "/games/gaungmerah/images/questions/static_food_5.jpg",
@@ -474,8 +488,8 @@ function fetchQuizData(target_visual) {
                         "Food Court",
                     ],
                     quizQuestion:
-                        "Warung makan khas Tegal yang kualitasnya menyala dari waktu ke waktu adalah",
-                    quizReason: "",
+                        "Warung makanan khas tegal yang kualitasnya menyala dari waktu ke waktu adalah?",
+                    quizReason: "Warung makan khas tegal adalah warteg",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 1,
                 },
@@ -485,7 +499,8 @@ function fetchQuizData(target_visual) {
                 {
                     contentIndex: 0,
                     quizClueImage: "",
-                    quizClueText: "",
+                    quizClueText:
+                        "Nama acara musik persembahan Gaung Merah adalah Gaung Merah SeGALAnya",
                     quizCorrectOption: 2,
                     quizImage: "",
                     quizOptions: [
@@ -495,29 +510,33 @@ function fetchQuizData(target_visual) {
                         "Irama Merah",
                     ],
                     quizQuestion:
-                        "Apa nama Acara Musik everlasting yang diadakan oleh Gaung Merah?",
-                    quizReason: "",
+                        "Apa nama acara musik persembahan Gaung Merah yang membawakan tema Legendaris?",
+                    quizReason:
+                        "Nama acara musik persembahan Gaung Merah adalah Gaung Merah SeGALAnya",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 0,
                 },
                 {
                     contentIndex: 0,
                     quizClueImage: "",
-                    quizClueText: "",
+                    quizClueText:
+                        "Musisi Legendaris yang dibawa ke 35 kota oleh Gaung Merah adalah Iwan Fals",
                     quizCorrectOption: 3,
                     quizImage:
                         "/games/gaungmerah/images/questions/static_question_2.jpg",
                     quizOptions: ["Iwa K", "Slank", "Iwan Fals", "Tipe-X"],
                     quizQuestion:
-                        "Siapa Musisi Everlasting yang dibawa oleh Gaung Merah ke 35 Kota di Indonesia?",
-                    quizReason: "",
+                        "Siapa Musisi Legendaris yang dibawa oleh Gaung Merah ke 35 Kota di Indonesia?",
+                    quizReason:
+                        "Musisi Legendaris yang dibawa ke 35 kota oleh Gaung Merah adalah Iwan Fals",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 1,
                 },
                 {
                     contentIndex: 0,
                     quizClueImage: "",
-                    quizClueText: "",
+                    quizClueText:
+                        "3 pilar dari Gaung Merah adalah Musik, Film, Kuliner",
                     quizCorrectOption: 1,
                     quizImage: "",
                     quizOptions: [
@@ -527,7 +546,8 @@ function fetchQuizData(target_visual) {
                         "Kuliner, Otomotif, Hobby",
                     ],
                     quizQuestion: "Apa 3 pilar dari Gaung Merah?",
-                    quizReason: "",
+                    quizReason:
+                        "3 pilar dari Gaung Merah adalah Musik, Film, Kuliner",
                     quizSettingTimer: { timer: 10, pointSecond: 1 },
                     tagImage: 0,
                 },
@@ -535,7 +555,7 @@ function fetchQuizData(target_visual) {
 
             currentQuizData.questions = currentQuizData.questions.slice(0, 6);
 
-            // currentQuizData.questions = [];
+            //currentQuizData.questions = [];
 
             const randomIndex = Math.floor(
                 Math.random() * staticFoodQuestion.length
@@ -1191,18 +1211,15 @@ function openInstagram() {
             if (!response.ok) {
                 console.warn("ERROR");
                 console.log(response.status);
-                openIG();
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
         })
         .then((data) => {
             console.warn(SESSION_ID, " - IG SUCCESS TO TRACKED");
-            openIG();
         })
         .catch((error) => {
             console.warn(SESSION_ID, " - IG FAILED TO TRACKED");
-            openIG();
         });
 }
 
@@ -1234,10 +1251,7 @@ function underAgeTracker() {
 }
 
 function openIG() {
-    const appLink = `instagram://user?username=gaung_merah`;
-    const webLink = `https://www.instagram.com/gaung_merah`;
-
-    window.open(webLink, "_blank");
+    window.open("https://www.instagram.com/gaung_merah", "_blank");
 }
 
 function initDropdown(inputId, dropdownId, optionsList) {

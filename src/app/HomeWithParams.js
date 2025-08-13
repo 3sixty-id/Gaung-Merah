@@ -41,7 +41,7 @@ const styles = {
     },
     text: {
         marginTop: 20,
-        fontSize: "2em",
+        fontSize: "1.25em",
         fontWeight: "bold",
         textAlign: "center",
     },

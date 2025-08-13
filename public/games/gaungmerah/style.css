@@ -4,6 +4,15 @@
     font-family: "Inter", sans-serif;
 }
 
+#igtrigger {
+    opacity: 0; /* fully transparent */
+    position: absolute; /* doesn't push other elements */
+    width: 0; /* optional: shrink size */
+    height: 0; /* optional: shrink size */
+    border: none; /* remove border */
+    background: none; /* remove background */
+}
+
 html,
 body {
     padding: 0;

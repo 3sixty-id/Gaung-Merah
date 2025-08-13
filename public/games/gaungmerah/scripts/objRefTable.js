@@ -9,6 +9,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Touch,
 		C3.Plugins.Audio,
 		C3.Plugins.HTMLElement,
+		C3.Plugins.Button,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.JavaScriptInEvents.Gameplay_Event1_Act1,
 		C3.Plugins.System.Cnds.IsGroupActive,
@@ -162,6 +163,7 @@ self.C3_JsPropNameTable = [
 	{TnC: 0},
 	{TnC_Button: 0},
 	{icon_loading: 0},
+	{Button: 0},
 	{IsAnswered: 0},
 	{isBussy: 0},
 	{SelectedOption: 0},
@@ -283,5 +285,6 @@ self.InstanceType = {
 	Group4: class extends self.ISpriteInstance {},
 	TnC: class extends self.ISpriteInstance {},
 	TnC_Button: class extends self.ISpriteInstance {},
-	icon_loading: class extends self.ISpriteInstance {}
+	icon_loading: class extends self.ISpriteInstance {},
+	Button: class extends self.IButtonInstance {}
 }
