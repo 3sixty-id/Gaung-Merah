@@ -1290,9 +1290,25 @@ function initDropdown(inputId, dropdownId, optionsList) {
                 ghostInput.value = "";
                 ghostInput.focus(); // ⌨️ trigger keyboard di iOS
 
-                // Sync value ke input utama
+                // === FIX: Handle IME composition to avoid reversed text ===
+                let isComposing = false;
+
+                ghostInput.addEventListener("compositionstart", () => {
+                    isComposing = true;
+                });
+
+                ghostInput.addEventListener("compositionend", () => {
+                    isComposing = false;
+                    // Delay to ensure IME finalizes value
+                    setTimeout(() => {
+                        if (ghostInput) input.value = ghostInput.value;
+                    }, 0);
+                });
+
                 ghostInput.addEventListener("input", () => {
-                    input.value = ghostInput.value;
+                    if (!isComposing) {
+                        input.value = ghostInput.value;
+                    }
                 });
 
                 // Bersihkan jika blur
