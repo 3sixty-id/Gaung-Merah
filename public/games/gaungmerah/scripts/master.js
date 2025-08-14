@@ -1232,58 +1232,24 @@ function initDropdown(inputId, dropdownId, optionsList) {
          const value = option;
 
          if (value === "LAINNYA") {
-            // 1. Hapus ghostInput sebelumnya jika ada
-            if (ghostInput) ghostInput.remove();
+            // Allow typing directly into the visible input
+            input.removeAttribute("readonly");
+            input.value = "";
 
-            // 2. Buat ghost input baru yang tersembunyi
-            ghostInput = document.createElement("input");
-            ghostInput.type = "text";
-            ghostInput.style.position = "absolute";
-            ghostInput.style.opacity = "0";
-            ghostInput.style.height = "0";
-            ghostInput.style.width = "0";
-            ghostInput.style.zIndex = "-1";
-            ghostInput.autocapitalize = "off";
-            ghostInput.autocomplete = "off";
-            ghostInput.autocorrect = "off";
-
-            document.body.appendChild(ghostInput);
-
-            ghostInput.value = "";
-            ghostInput.focus(); // ⌨️ trigger keyboard di iOS
-
-            // === FIX: Handle IME composition to avoid reversed text ===
-            let isComposing = false;
-
-            ghostInput.addEventListener("compositionstart", () => {
-               isComposing = true;
-            });
-
-            ghostInput.addEventListener("compositionend", () => {
-               isComposing = false;
-               // Delay to ensure IME finalizes value
-               setTimeout(() => {
-                  if (ghostInput) input.value = ghostInput.value;
-               }, 0);
-            });
-
-            ghostInput.addEventListener("input", () => {
-               if (!isComposing) {
-                  input.value = ghostInput.value;
-               }
-            });
-
-            // Bersihkan jika blur
-            ghostInput.addEventListener("blur", () => {
-               ghostInput.remove();
-               ghostInput = null;
-            });
-
-            input.value = ""; // Kosongkan main input
-            input.setAttribute("readonly", true); // Tetap readonly
+            // Close dropdown
             dropdown.style.display = "none";
-
             runtime.globalVars.isBussy = false;
+
+            // Focus the real input so mobile keyboard writes directly
+            setTimeout(() => {
+               input.focus();
+            }, 50);
+
+            // When user leaves the field, make it readonly again
+            input.addEventListener("blur", function restoreReadonly() {
+               input.setAttribute("readonly", true);
+               input.removeEventListener("blur", restoreReadonly);
+            });
          } else {
             input.value = value;
             input.setAttribute("readonly", true);
