@@ -1219,53 +1219,55 @@ function openIG() {
 function initDropdown(inputId, dropdownId, optionsList) {
    const input = document.getElementById(inputId);
    const dropdown = document.getElementById(dropdownId);
-   let ghostInput = null;
+   let inlineInput = null;
 
-   // 1. Clear existing items and generate <li> dynamically
-   dropdown.innerHTML = "";
-   optionsList.forEach((option) => {
-      const li = document.createElement("li");
-      li.textContent = option;
-      dropdown.appendChild(li);
+   function renderList() {
+      dropdown.innerHTML = "";
+      optionsList.forEach((option) => {
+         const li = document.createElement("li");
+         li.textContent = option;
+         dropdown.appendChild(li);
 
-      li.addEventListener("click", (event) => {
-         const value = option;
+         li.addEventListener("click", (event) => {
+            if (option === "LAINNYA") {
+               // Show only text field
+               dropdown.innerHTML = "";
 
-         if (value === "LAINNYA") {
-            // Allow typing directly into the visible input
-            input.removeAttribute("readonly");
-            input.value = "";
+               inlineInput = document.createElement("input");
+               inlineInput.id = "searchBox";
+               inlineInput.type = "text";
+               inlineInput.placeholder = "Masukkan data...";
+               inlineInput.style.width = "100%";
+               inlineInput.style.boxSizing = "border-box";
+               inlineInput.style.margin = "4px 0";
 
-            // Close dropdown
-            dropdown.style.display = "none";
-            runtime.globalVars.isBussy = false;
+               dropdown.appendChild(inlineInput);
 
-            // Focus the real input so mobile keyboard writes directly
-            setTimeout(() => {
-               input.focus();
-            }, 50);
+               inlineInput.focus(); // iOS-safe
 
-            // When user leaves the field, make it readonly again
-            input.addEventListener("blur", function restoreReadonly() {
+               inlineInput.addEventListener("input", () => {
+                  input.value = inlineInput.value;
+               });
+
+               inlineInput.addEventListener("blur", () => {
+                  input.setAttribute("readonly", true);
+                  dropdown.style.display = "none"; // hide list
+                  renderList(); // restore list internally
+               });
+
+               input.value = "";
                input.setAttribute("readonly", true);
-               input.removeEventListener("blur", restoreReadonly);
-            });
-         } else {
-            input.value = value;
-            input.setAttribute("readonly", true);
-            dropdown.style.display = "none";
-
-            if (ghostInput) {
-               ghostInput.remove();
-               ghostInput = null;
+            } else {
+               input.value = option;
+               input.setAttribute("readonly", true);
+               dropdown.style.display = "none";
             }
 
             runtime.globalVars.isBussy = false;
-         }
-
-         event.stopPropagation();
+            event.stopPropagation();
+         });
       });
-   });
+   }
 
    function positionDropdown() {
       const rect = input.getBoundingClientRect();
@@ -1275,15 +1277,13 @@ function initDropdown(inputId, dropdownId, optionsList) {
    }
 
    input.addEventListener("click", () => {
-      // Hide all other dropdowns before showing this one
       document.querySelectorAll("ul").forEach((ul) => {
-         if (ul !== dropdown) {
-            ul.style.display = "none";
-         }
+         if (ul !== dropdown) ul.style.display = "none";
       });
 
       positionDropdown();
       dropdown.style.display = "block";
+      renderList();
       runtime.globalVars.isBussy = true;
    });
 }
