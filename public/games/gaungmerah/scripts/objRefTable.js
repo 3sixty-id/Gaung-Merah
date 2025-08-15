@@ -164,6 +164,7 @@ self.C3_JsPropNameTable = [
 	{TnC_Button: 0},
 	{icon_loading: 0},
 	{Button: 0},
+	{NewUpdateText: 0},
 	{IsAnswered: 0},
 	{isBussy: 0},
 	{SelectedOption: 0},
@@ -286,5 +287,6 @@ self.InstanceType = {
 	TnC: class extends self.ISpriteInstance {},
 	TnC_Button: class extends self.ISpriteInstance {},
 	icon_loading: class extends self.ISpriteInstance {},
-	Button: class extends self.IButtonInstance {}
+	Button: class extends self.IButtonInstance {},
+	NewUpdateText: class extends self.ISpriteInstance {}
 }

@@ -2410,6 +2410,7 @@ self.C3_ExpressionFuncs = [
 		() => "bgm",
 		() => "intro_video",
 		() => "opening_screen",
+		() => 6,
 		() => "BUTTONS",
 		() => "registrasi",
 		() => "lanjutkan",

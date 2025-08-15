@@ -50,11 +50,6 @@ function initAction(key, value){
 
 const scriptsInEvents = {
 
-	async Loading_Event1_Act1(runtime, localVars)
-	{
-		initAction("init", "loading")
-	},
-
 	async Gameplay_Event1_Act1(runtime, localVars)
 	{
 		initAction("init", "menu")
@@ -163,6 +158,11 @@ const scriptsInEvents = {
 	async Gameplay_Event46_Act2(runtime, localVars)
 	{
 		initAction("button", "skip_ads")
+	},
+
+	async Loading_Event1_Act1(runtime, localVars)
+	{
+		initAction("init", "loading")
 	}
 };
 
